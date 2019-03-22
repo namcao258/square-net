@@ -1,0 +1,70 @@
+#include<ros/ros.h>
+#include<geometry_msgs/Twist.h>
+geometry_msgs::Twist getMessage(double linear_x,double angular_z)
+{
+geometry_msgs::Twist msg;
+msg.linear.x = linear_x;
+msg.angular.z=angular_z;
+return msg;
+}
+
+int main(int argc,char** argv){
+ros::init(argc,argv,"myturtle_control");
+ros::NodeHandle h;
+
+ros::Publisher pub1= h.advertise<geometry_msgs::Twist>("turtle1/cmd_vel",1000);
+
+ros::Publisher pub2= h.advertise<geometry_msgs::Twist>("turtle2/cmd_vel",1000);
+ros::Publisher pub3= h.advertise<geometry_msgs::Twist>("turtle3/cmd_vel",1000);
+ros::Publisher pub4= h.advertise<geometry_msgs::Twist>("turtle4/cmd_vel",1000);
+ros::Publisher pub5= h.advertise<geometry_msgs::Twist>("turtle5/cmd_vel",1000);
+ros::Publisher pub6= h.advertise<geometry_msgs::Twist>("turtle6/cmd_vel",1000);
+ros::Publisher pub7= h.advertise<geometry_msgs::Twist>("turtle7/cmd_vel",1000);
+ros::Publisher pub8= h.advertise<geometry_msgs::Twist>("turtle8/cmd_vel",1000);
+ros::Publisher pub9= h.advertise<geometry_msgs::Twist>("turtle9/cmd_vel",1000);
+ros::Publisher pub10= h.advertise<geometry_msgs::Twist>("turtle10/cmd_vel",1000);
+ros::Publisher pub11= h.advertise<geometry_msgs::Twist>("turtle11/cmd_vel",1000);
+ros::Publisher pub12= h.advertise<geometry_msgs::Twist>("turtle12/cmd_vel",1000);
+ros::Publisher pub13= h.advertise<geometry_msgs::Twist>("turtle13/cmd_vel",1000);
+ros::Publisher pub14= h.advertise<geometry_msgs::Twist>("turtle14/cmd_vel",1000);
+ros::Publisher pub15= h.advertise<geometry_msgs::Twist>("turtle15/cmd_vel",1000);
+ros::Publisher pub16= h.advertise<geometry_msgs::Twist>("turtle16/cmd_vel",1000);
+ros::Publisher pub17= h.advertise<geometry_msgs::Twist>("turtle17/cmd_vel",1000);
+ros::Publisher pub18= h.advertise<geometry_msgs::Twist>("turtle18/cmd_vel",1000);
+ros::Publisher pub19= h.advertise<geometry_msgs::Twist>("turtle19/cmd_vel",1000);
+ros::Publisher pub20= h.advertise<geometry_msgs::Twist>("turtle20/cmd_vel",1000);
+
+
+
+
+
+
+ros::Rate loopRate(1);
+double linear_x=1.0;
+while(ros::ok()){
+pub1.publish(getMessage(linear_x,0.00));
+pub2.publish(getMessage(linear_x,0.00));
+pub3.publish(getMessage(linear_x,0.00));
+pub4.publish(getMessage(linear_x,0.00));
+pub5.publish(getMessage(linear_x,0.00));
+pub6.publish(getMessage(linear_x,0.00));
+pub7.publish(getMessage(linear_x,0.00));
+pub8.publish(getMessage(linear_x,0.00));
+pub9.publish(getMessage(linear_x,0.00));
+pub10.publish(getMessage(linear_x,0.00));
+pub11.publish(getMessage(linear_x,0.00));
+pub12.publish(getMessage(linear_x,0.00));
+pub13.publish(getMessage(linear_x,0.00));
+pub14.publish(getMessage(linear_x,0.00));
+pub15.publish(getMessage(linear_x,0.00));
+pub16.publish(getMessage(linear_x,0.00));
+pub17.publish(getMessage(linear_x,0.00));
+pub18.publish(getMessage(linear_x,0.00));
+pub19.publish(getMessage(linear_x,0.00));
+pub20.publish(getMessage(linear_x,0.00));
+linear_x+=50;
+loopRate.sleep();
+ros::spinOnce;
+}
+return 0;
+}
